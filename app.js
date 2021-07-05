@@ -32,9 +32,7 @@ app.get("/movie_description/:id", (req, res)=> {
     request("http://www.omdbapi.com/?apikey=575abd82&i=" + id, (error, response, body)=> {
         if(!error && response.statusCode == 200) {
             const film = JSON.parse(body);
-            // console.log(film)
             res.render("movie", {film: film});
-            // res.send(film.Title)
         } else {
             console.log(error)
         }
